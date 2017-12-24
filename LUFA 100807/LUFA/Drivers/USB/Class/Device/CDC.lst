@@ -1,0 +1,1023 @@
+   1               		.file	"CDC.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.text.CDC_Device_Event_Stub,"ax",@progbits
+  17               	.global	CDC_Device_Event_Stub
+  19               	CDC_Device_Event_Stub:
+  20               	.LFB67:
+  21               	.LSM0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	/* epilogue start */
+  25               	.LSM1:
+  26 0000 0895      		ret
+  27               	.LFE67:
+  29               		.section	.text.CDC_Device_BytesReceived,"ax",@progbits
+  30               	.global	CDC_Device_BytesReceived
+  32               	CDC_Device_BytesReceived:
+  33               	.LFB74:
+  34               	.LSM2:
+  35               	.LVL0:
+  36               	/* prologue: function */
+  37               	/* frame size = 0 */
+  38 0000 FC01      		movw r30,r24
+  39               	.LSM3:
+  40 0002 8EB3      		in r24,62-32
+  41               	.LVL1:
+  42 0004 8430      		cpi r24,lo8(4)
+  43 0006 01F4      		brne .L4
+  44 0008 8785      		ldd r24,Z+15
+  45 000a 9089      		ldd r25,Z+16
+  46 000c A189      		ldd r26,Z+17
+  47 000e B289      		ldd r27,Z+18
+  48 0010 0097      		sbiw r24,0
+  49 0012 A105      		cpc r26,__zero_reg__
+  50 0014 B105      		cpc r27,__zero_reg__
+  51 0016 01F0      		breq .L4
+  52               	.LSM4:
+  53 0018 8581      		ldd r24,Z+5
+  54               	.LBB83:
+  55               	.LBB84:
+  56               	.LSM5:
+  57 001a 8093 E900 		sts 233,r24
+  58               	.LBE84:
+  59               	.LBE83:
+  60               	.LBB85:
+  61               	.LBB86:
+  62               	.LSM6:
+  63 001e 8091 E800 		lds r24,232
+  64               	.LBE86:
+  65               	.LBE85:
+  66               	.LSM7:
+  67 0022 82FF      		sbrs r24,2
+  68 0024 00C0      		rjmp .L4
+  69               	.LBB87:
+  70               	.LBB88:
+  71               	.LSM8:
+  72 0026 8091 F200 		lds r24,242
+  73               	.LBE88:
+  74               	.LBE87:
+  75               	.LSM9:
+  76 002a 8823      		tst r24
+  77 002c 01F4      		brne .L5
+  78               	.LBB89:
+  79               	.LBB90:
+  80               	.LSM10:
+  81 002e 8091 E800 		lds r24,232
+  82 0032 8B77      		andi r24,lo8(123)
+  83 0034 8093 E800 		sts 232,r24
+  84 0038 00C0      		rjmp .L4
+  85               	.L5:
+  86               	.LBE90:
+  87               	.LBE89:
+  88               	.LBB91:
+  89               	.LBB92:
+  90               	.LSM11:
+  91 003a 8091 F200 		lds r24,242
+  92 003e 282F      		mov r18,r24
+  93 0040 30E0      		ldi r19,lo8(0)
+  94 0042 00C0      		rjmp .L6
+  95               	.L4:
+  96               	.LSM12:
+  97 0044 20E0      		ldi r18,lo8(0)
+  98 0046 30E0      		ldi r19,hi8(0)
+  99               	.L6:
+ 100               	.LBE92:
+ 101               	.LBE91:
+ 102               	.LSM13:
+ 103 0048 C901      		movw r24,r18
+ 104               	/* epilogue start */
+ 105 004a 0895      		ret
+ 106               	.LFE74:
+ 108               		.section	.text.CDC_Device_ReceiveByte,"ax",@progbits
+ 109               	.global	CDC_Device_ReceiveByte
+ 111               	CDC_Device_ReceiveByte:
+ 112               	.LFB75:
+ 113               	.LSM14:
+ 114               	.LVL2:
+ 115               	/* prologue: function */
+ 116               	/* frame size = 0 */
+ 117 0000 FC01      		movw r30,r24
+ 118               	.LSM15:
+ 119 0002 8EB3      		in r24,62-32
+ 120               	.LVL3:
+ 121 0004 8430      		cpi r24,lo8(4)
+ 122 0006 01F4      		brne .L9
+ 123 0008 8785      		ldd r24,Z+15
+ 124 000a 9089      		ldd r25,Z+16
+ 125 000c A189      		ldd r26,Z+17
+ 126 000e B289      		ldd r27,Z+18
+ 127 0010 0097      		sbiw r24,0
+ 128 0012 A105      		cpc r26,__zero_reg__
+ 129 0014 B105      		cpc r27,__zero_reg__
+ 130 0016 01F0      		breq .L9
+ 131               	.LSM16:
+ 132 0018 8581      		ldd r24,Z+5
+ 133               	.LBB93:
+ 134               	.LBB94:
+ 135               	.LSM17:
+ 136 001a 8093 E900 		sts 233,r24
+ 137               	.LBE94:
+ 138               	.LBE93:
+ 139               	.LBB95:
+ 140               	.LBB96:
+ 141               	.LSM18:
+ 142 001e 8091 E800 		lds r24,232
+ 143               	.LBE96:
+ 144               	.LBE95:
+ 145               	.LSM19:
+ 146 0022 82FF      		sbrs r24,2
+ 147 0024 00C0      		rjmp .L9
+ 148               	.L10:
+ 149               	.LBB97:
+ 150               	.LBB98:
+ 151               	.LSM20:
+ 152 0026 8091 F200 		lds r24,242
+ 153               	.LBE98:
+ 154               	.LBE97:
+ 155               	.LSM21:
+ 156 002a 8823      		tst r24
+ 157 002c 01F4      		brne .L12
+ 158 002e 2FEF      		ldi r18,lo8(-1)
+ 159 0030 3FEF      		ldi r19,hi8(-1)
+ 160               	.LVL4:
+ 161 0032 00C0      		rjmp .L13
+ 162               	.LVL5:
+ 163               	.L12:
+ 164               	.LBB99:
+ 165               	.LBB100:
+ 166               	.LSM22:
+ 167 0034 8091 F100 		lds r24,241
+ 168               	.LBE100:
+ 169               	.LBE99:
+ 170               	.LSM23:
+ 171 0038 282F      		mov r18,r24
+ 172               	.LVL6:
+ 173 003a 30E0      		ldi r19,lo8(0)
+ 174               	.LVL7:
+ 175               	.L13:
+ 176               	.LBB101:
+ 177               	.LBB102:
+ 178               	.LSM24:
+ 179 003c 8091 F200 		lds r24,242
+ 180               	.LBE102:
+ 181               	.LBE101:
+ 182               	.LSM25:
+ 183 0040 8823      		tst r24
+ 184 0042 01F4      		brne .L11
+ 185               	.LBB103:
+ 186               	.LBB104:
+ 187               	.LSM26:
+ 188 0044 8091 E800 		lds r24,232
+ 189 0048 8B77      		andi r24,lo8(123)
+ 190 004a 8093 E800 		sts 232,r24
+ 191 004e 00C0      		rjmp .L11
+ 192               	.LVL8:
+ 193               	.L9:
+ 194 0050 2FEF      		ldi r18,lo8(-1)
+ 195 0052 3FEF      		ldi r19,hi8(-1)
+ 196               	.LVL9:
+ 197               	.L11:
+ 198               	.LBE104:
+ 199               	.LBE103:
+ 200               	.LSM27:
+ 201 0054 C901      		movw r24,r18
+ 202               	.LVL10:
+ 203               	/* epilogue start */
+ 204 0056 0895      		ret
+ 205               	.LFE75:
+ 207               		.section	.text.CDC_Device_CreateStream,"ax",@progbits
+ 208               	.global	CDC_Device_CreateStream
+ 210               	CDC_Device_CreateStream:
+ 211               	.LFB77:
+ 212               	.LSM28:
+ 213               	.LVL11:
+ 214               	/* prologue: function */
+ 215               	/* frame size = 0 */
+ 216 0000 FB01      		movw r30,r22
+ 217               	.LSM29:
+ 218 0002 2EE0      		ldi r18,lo8(14)
+ 219 0004 DB01      		movw r26,r22
+ 220 0006 1D92      		st X+,__zero_reg__
+ 221 0008 2A95      	        dec r18
+ 222 000a 01F4      		brne .-6
+ 223 000c 23E0      		ldi r18,lo8(3)
+ 224 000e 2383      		std Z+3,r18
+ 225 0010 20E0      		ldi r18,lo8(gs(CDC_Device_putchar))
+ 226 0012 30E0      		ldi r19,hi8(gs(CDC_Device_putchar))
+ 227 0014 3187      		std Z+9,r19
+ 228 0016 2087      		std Z+8,r18
+ 229 0018 20E0      		ldi r18,lo8(gs(CDC_Device_getchar))
+ 230 001a 30E0      		ldi r19,hi8(gs(CDC_Device_getchar))
+ 231 001c 3387      		std Z+11,r19
+ 232 001e 2287      		std Z+10,r18
+ 233               	.LSM30:
+ 234 0020 9587      		std Z+13,r25
+ 235 0022 8487      		std Z+12,r24
+ 236               	/* epilogue start */
+ 237               	.LSM31:
+ 238 0024 0895      		ret
+ 239               	.LFE77:
+ 241               		.section	.text.CDC_Device_CreateBlockingStream,"ax",@progbits
+ 242               	.global	CDC_Device_CreateBlockingStream
+ 244               	CDC_Device_CreateBlockingStream:
+ 245               	.LFB78:
+ 246               	.LSM32:
+ 247               	.LVL12:
+ 248               	/* prologue: function */
+ 249               	/* frame size = 0 */
+ 250 0000 FB01      		movw r30,r22
+ 251               	.LSM33:
+ 252 0002 2EE0      		ldi r18,lo8(14)
+ 253 0004 DB01      		movw r26,r22
+ 254 0006 1D92      		st X+,__zero_reg__
+ 255 0008 2A95      	        dec r18
+ 256 000a 01F4      		brne .-6
+ 257 000c 23E0      		ldi r18,lo8(3)
+ 258 000e 2383      		std Z+3,r18
+ 259 0010 20E0      		ldi r18,lo8(gs(CDC_Device_putchar))
+ 260 0012 30E0      		ldi r19,hi8(gs(CDC_Device_putchar))
+ 261 0014 3187      		std Z+9,r19
+ 262 0016 2087      		std Z+8,r18
+ 263 0018 20E0      		ldi r18,lo8(gs(CDC_Device_getchar_Blocking))
+ 264 001a 30E0      		ldi r19,hi8(gs(CDC_Device_getchar_Blocking))
+ 265 001c 3387      		std Z+11,r19
+ 266 001e 2287      		std Z+10,r18
+ 267               	.LSM34:
+ 268 0020 9587      		std Z+13,r25
+ 269 0022 8487      		std Z+12,r24
+ 270               	/* epilogue start */
+ 271               	.LSM35:
+ 272 0024 0895      		ret
+ 273               	.LFE78:
+ 275               		.section	.text.CDC_Device_getchar,"ax",@progbits
+ 277               	CDC_Device_getchar:
+ 278               	.LFB80:
+ 279               	.LSM36:
+ 280               	.LVL13:
+ 281               	/* prologue: function */
+ 282               	/* frame size = 0 */
+ 283               	.LSM37:
+ 284 0000 FC01      		movw r30,r24
+ 285 0002 8485      		ldd r24,Z+12
+ 286 0004 9585      		ldd r25,Z+13
+ 287               	.LVL14:
+ 288 0006 0E94 0000 		call CDC_Device_ReceiveByte
+ 289 000a 9C01      		movw r18,r24
+ 290               	.LVL15:
+ 291               	.LSM38:
+ 292 000c 97FF      		sbrs r25,7
+ 293 000e 00C0      		rjmp .L20
+ 294               	.LVL16:
+ 295 0010 2EEF      		ldi r18,lo8(-2)
+ 296 0012 3FEF      		ldi r19,hi8(-2)
+ 297               	.LVL17:
+ 298               	.L20:
+ 299               	.LSM39:
+ 300 0014 C901      		movw r24,r18
+ 301               	.LVL18:
+ 302               	/* epilogue start */
+ 303 0016 0895      		ret
+ 304               	.LFE80:
+ 306               		.section	.text.CDC_Device_SendControlLineStateChange,"ax",@progbits
+ 307               	.global	CDC_Device_SendControlLineStateChange
+ 309               	CDC_Device_SendControlLineStateChange:
+ 310               	.LFB76:
+ 311               	.LSM40:
+ 312               	.LVL19:
+ 313 0000 0F93      		push r16
+ 314 0002 1F93      		push r17
+ 315 0004 DF93      		push r29
+ 316 0006 CF93      		push r28
+ 317 0008 CDB7      		in r28,__SP_L__
+ 318 000a DEB7      		in r29,__SP_H__
+ 319 000c 2897      		sbiw r28,8
+ 320 000e 0FB6      		in __tmp_reg__,__SREG__
+ 321 0010 F894      		cli
+ 322 0012 DEBF      		out __SP_H__,r29
+ 323 0014 0FBE      		out __SREG__,__tmp_reg__
+ 324 0016 CDBF      		out __SP_L__,r28
+ 325               	/* prologue: function */
+ 326               	/* frame size = 8 */
+ 327 0018 8C01      		movw r16,r24
+ 328               	.LSM41:
+ 329 001a 8EB3      		in r24,62-32
+ 330               	.LVL20:
+ 331 001c 8430      		cpi r24,lo8(4)
+ 332 001e 01F4      		brne .L25
+ 333 0020 F801      		movw r30,r16
+ 334 0022 8785      		ldd r24,Z+15
+ 335 0024 9089      		ldd r25,Z+16
+ 336 0026 A189      		ldd r26,Z+17
+ 337 0028 B289      		ldd r27,Z+18
+ 338 002a 0097      		sbiw r24,0
+ 339 002c A105      		cpc r26,__zero_reg__
+ 340 002e B105      		cpc r27,__zero_reg__
+ 341 0030 01F0      		breq .L25
+ 342               	.LSM42:
+ 343 0032 8185      		ldd r24,Z+9
+ 344               	.LBB105:
+ 345               	.LBB106:
+ 346               	.LSM43:
+ 347 0034 8093 E900 		sts 233,r24
+ 348               	.LBE106:
+ 349               	.LBE105:
+ 350               	.LSM44:
+ 351 0038 DE01      		movw r26,r28
+ 352 003a 1196      		adiw r26,1
+ 353 003c E0E0      		ldi r30,lo8(C.15.2883)
+ 354 003e F0E0      		ldi r31,hi8(C.15.2883)
+ 355 0040 88E0      		ldi r24,lo8(8)
+ 356               	.L24:
+ 357 0042 0190      		ld r0,Z+
+ 358 0044 0D92      		st X+,r0
+ 359 0046 8150      		subi r24,lo8(-(-1))
+ 360 0048 01F4      		brne .L24
+ 361               	.LSM45:
+ 362 004a CE01      		movw r24,r28
+ 363 004c 0196      		adiw r24,1
+ 364 004e 68E0      		ldi r22,lo8(8)
+ 365 0050 70E0      		ldi r23,hi8(8)
+ 366 0052 40E0      		ldi r20,lo8(0)
+ 367 0054 50E0      		ldi r21,hi8(0)
+ 368 0056 0E94 0000 		call Endpoint_Write_Stream_LE
+ 369               	.LSM46:
+ 370 005a C801      		movw r24,r16
+ 371 005c 0E96      		adiw r24,14
+ 372 005e 61E0      		ldi r22,lo8(1)
+ 373 0060 70E0      		ldi r23,hi8(1)
+ 374 0062 40E0      		ldi r20,lo8(0)
+ 375 0064 50E0      		ldi r21,hi8(0)
+ 376 0066 0E94 0000 		call Endpoint_Write_Stream_LE
+ 377               	.LBB107:
+ 378               	.LBB108:
+ 379               	.LSM47:
+ 380 006a 8091 E800 		lds r24,232
+ 381 006e 8E77      		andi r24,lo8(126)
+ 382 0070 8093 E800 		sts 232,r24
+ 383               	.L25:
+ 384               	/* epilogue start */
+ 385               	.LBE108:
+ 386               	.LBE107:
+ 387               	.LSM48:
+ 388 0074 2896      		adiw r28,8
+ 389 0076 0FB6      		in __tmp_reg__,__SREG__
+ 390 0078 F894      		cli
+ 391 007a DEBF      		out __SP_H__,r29
+ 392 007c 0FBE      		out __SREG__,__tmp_reg__
+ 393 007e CDBF      		out __SP_L__,r28
+ 394 0080 CF91      		pop r28
+ 395 0082 DF91      		pop r29
+ 396 0084 1F91      		pop r17
+ 397 0086 0F91      		pop r16
+ 398               	.LVL21:
+ 399 0088 0895      		ret
+ 400               	.LFE76:
+ 402               		.section	.text.CDC_Device_SendString,"ax",@progbits
+ 403               	.global	CDC_Device_SendString
+ 405               	CDC_Device_SendString:
+ 406               	.LFB71:
+ 407               	.LSM49:
+ 408               	.LVL22:
+ 409               	/* prologue: function */
+ 410               	/* frame size = 0 */
+ 411 0000 FC01      		movw r30,r24
+ 412               	.LSM50:
+ 413 0002 8EB3      		in r24,62-32
+ 414               	.LVL23:
+ 415 0004 8430      		cpi r24,lo8(4)
+ 416 0006 01F4      		brne .L28
+ 417 0008 8785      		ldd r24,Z+15
+ 418 000a 9089      		ldd r25,Z+16
+ 419 000c A189      		ldd r26,Z+17
+ 420 000e B289      		ldd r27,Z+18
+ 421 0010 0097      		sbiw r24,0
+ 422 0012 A105      		cpc r26,__zero_reg__
+ 423 0014 B105      		cpc r27,__zero_reg__
+ 424 0016 01F0      		breq .L28
+ 425               	.LSM51:
+ 426 0018 8181      		ldd r24,Z+1
+ 427               	.LBB109:
+ 428               	.LBB110:
+ 429               	.LSM52:
+ 430 001a 8093 E900 		sts 233,r24
+ 431               	.LBE110:
+ 432               	.LBE109:
+ 433               	.LSM53:
+ 434 001e CB01      		movw r24,r22
+ 435 0020 BA01      		movw r22,r20
+ 436               	.LVL24:
+ 437 0022 40E0      		ldi r20,lo8(0)
+ 438 0024 50E0      		ldi r21,hi8(0)
+ 439               	.LVL25:
+ 440 0026 0E94 0000 		call Endpoint_Write_Stream_LE
+ 441               	.LVL26:
+ 442 002a 0895      		ret
+ 443               	.LVL27:
+ 444               	.L28:
+ 445 002c 82E0      		ldi r24,lo8(2)
+ 446               	.LSM54:
+ 447 002e 0895      		ret
+ 448               	.LFE71:
+ 450               		.section	.text.CDC_Device_Flush,"ax",@progbits
+ 451               	.global	CDC_Device_Flush
+ 453               	CDC_Device_Flush:
+ 454               	.LFB73:
+ 455               	.LSM55:
+ 456               	.LVL28:
+ 457               	/* prologue: function */
+ 458               	/* frame size = 0 */
+ 459 0000 FC01      		movw r30,r24
+ 460               	.LSM56:
+ 461 0002 8EB3      		in r24,62-32
+ 462               	.LVL29:
+ 463 0004 8430      		cpi r24,lo8(4)
+ 464 0006 01F4      		brne .L32
+ 465 0008 8785      		ldd r24,Z+15
+ 466 000a 9089      		ldd r25,Z+16
+ 467 000c A189      		ldd r26,Z+17
+ 468 000e B289      		ldd r27,Z+18
+ 469 0010 0097      		sbiw r24,0
+ 470 0012 A105      		cpc r26,__zero_reg__
+ 471 0014 B105      		cpc r27,__zero_reg__
+ 472 0016 01F0      		breq .L32
+ 473               	.LSM57:
+ 474 0018 8181      		ldd r24,Z+1
+ 475               	.LBB111:
+ 476               	.LBB112:
+ 477               	.LSM58:
+ 478 001a 8093 E900 		sts 233,r24
+ 479               	.LBE112:
+ 480               	.LBE111:
+ 481               	.LBB113:
+ 482               	.LBB114:
+ 483               	.LSM59:
+ 484 001e 8091 F200 		lds r24,242
+ 485               	.LBE114:
+ 486               	.LBE113:
+ 487               	.LSM60:
+ 488 0022 8823      		tst r24
+ 489 0024 01F0      		breq .L33
+ 490               	.LBB115:
+ 491               	.LBB116:
+ 492               	.LSM61:
+ 493 0026 9091 E800 		lds r25,232
+ 494               	.LBE116:
+ 495               	.LBE115:
+ 496               	.LBB117:
+ 497               	.LBB118:
+ 498               	.LSM62:
+ 499 002a 8091 E800 		lds r24,232
+ 500 002e 8E77      		andi r24,lo8(126)
+ 501 0030 8093 E800 		sts 232,r24
+ 502               	.LBE118:
+ 503               	.LBE117:
+ 504               	.LSM63:
+ 505 0034 95FD      		sbrc r25,5
+ 506 0036 00C0      		rjmp .L33
+ 507               	.LSM64:
+ 508 0038 0E94 0000 		call Endpoint_WaitUntilReady
+ 509               	.LVL30:
+ 510 003c 982F      		mov r25,r24
+ 511               	.LVL31:
+ 512 003e 8823      		tst r24
+ 513 0040 01F4      		brne .L34
+ 514               	.LVL32:
+ 515               	.LBB119:
+ 516               	.LBB120:
+ 517               	.LSM65:
+ 518 0042 8091 E800 		lds r24,232
+ 519               	.LVL33:
+ 520 0046 8E77      		andi r24,lo8(126)
+ 521 0048 8093 E800 		sts 232,r24
+ 522 004c 00C0      		rjmp .L34
+ 523               	.LVL34:
+ 524               	.L32:
+ 525 004e 92E0      		ldi r25,lo8(2)
+ 526               	.LVL35:
+ 527 0050 00C0      		rjmp .L34
+ 528               	.LVL36:
+ 529               	.L33:
+ 530 0052 90E0      		ldi r25,lo8(0)
+ 531               	.LVL37:
+ 532               	.L34:
+ 533               	.LBE120:
+ 534               	.LBE119:
+ 535               	.LSM66:
+ 536 0054 892F      		mov r24,r25
+ 537               	/* epilogue start */
+ 538 0056 0895      		ret
+ 539               	.LFE73:
+ 541               		.section	.text.CDC_Device_USBTask,"ax",@progbits
+ 542               	.global	CDC_Device_USBTask
+ 544               	CDC_Device_USBTask:
+ 545               	.LFB70:
+ 546               	.LSM67:
+ 547               	.LVL38:
+ 548               	/* prologue: function */
+ 549               	/* frame size = 0 */
+ 550 0000 FC01      		movw r30,r24
+ 551               	.LSM68:
+ 552 0002 8EB3      		in r24,62-32
+ 553               	.LVL39:
+ 554 0004 8430      		cpi r24,lo8(4)
+ 555 0006 01F4      		brne .L38
+ 556 0008 8785      		ldd r24,Z+15
+ 557 000a 9089      		ldd r25,Z+16
+ 558 000c A189      		ldd r26,Z+17
+ 559 000e B289      		ldd r27,Z+18
+ 560 0010 0097      		sbiw r24,0
+ 561 0012 A105      		cpc r26,__zero_reg__
+ 562 0014 B105      		cpc r27,__zero_reg__
+ 563 0016 01F0      		breq .L38
+ 564               	.LSM69:
+ 565 0018 CF01      		movw r24,r30
+ 566 001a 0E94 0000 		call CDC_Device_Flush
+ 567               	.LVL40:
+ 568               	.L38:
+ 569 001e 0895      		ret
+ 570               	.LFE70:
+ 572               		.section	.text.CDC_Device_getchar_Blocking,"ax",@progbits
+ 574               	CDC_Device_getchar_Blocking:
+ 575               	.LFB81:
+ 576               	.LSM70:
+ 577               	.LVL41:
+ 578 0000 CF93      		push r28
+ 579 0002 DF93      		push r29
+ 580               	/* prologue: function */
+ 581               	/* frame size = 0 */
+ 582 0004 EC01      		movw r28,r24
+ 583 0006 00C0      		rjmp .L40
+ 584               	.LVL42:
+ 585               	.L43:
+ 586               	.LSM71:
+ 587 0008 8EB3      		in r24,62-32
+ 588               	.LVL43:
+ 589 000a 8823      		tst r24
+ 590 000c 01F4      		brne .L41
+ 591 000e 2EEF      		ldi r18,lo8(-2)
+ 592 0010 3FEF      		ldi r19,hi8(-2)
+ 593 0012 00C0      		rjmp .L42
+ 594               	.L41:
+ 595               	.LSM72:
+ 596 0014 8C85      		ldd r24,Y+12
+ 597 0016 9D85      		ldd r25,Y+13
+ 598 0018 0E94 0000 		call CDC_Device_USBTask
+ 599               	.LVL44:
+ 600               	.LSM73:
+ 601 001c 0E94 0000 		call USB_USBTask
+ 602               	.LVL45:
+ 603               	.L40:
+ 604               	.LSM74:
+ 605 0020 8C85      		ldd r24,Y+12
+ 606 0022 9D85      		ldd r25,Y+13
+ 607 0024 0E94 0000 		call CDC_Device_ReceiveByte
+ 608 0028 9C01      		movw r18,r24
+ 609               	.LVL46:
+ 610 002a 97FD      		sbrc r25,7
+ 611 002c 00C0      		rjmp .L43
+ 612               	.L42:
+ 613               	.LSM75:
+ 614 002e C901      		movw r24,r18
+ 615               	.LVL47:
+ 616               	/* epilogue start */
+ 617 0030 DF91      		pop r29
+ 618 0032 CF91      		pop r28
+ 619               	.LVL48:
+ 620 0034 0895      		ret
+ 621               	.LFE81:
+ 623               		.section	.text.CDC_Device_SendByte,"ax",@progbits
+ 624               	.global	CDC_Device_SendByte
+ 626               	CDC_Device_SendByte:
+ 627               	.LFB72:
+ 628               	.LSM76:
+ 629               	.LVL49:
+ 630 0000 1F93      		push r17
+ 631               	/* prologue: function */
+ 632               	/* frame size = 0 */
+ 633 0002 FC01      		movw r30,r24
+ 634 0004 162F      		mov r17,r22
+ 635               	.LSM77:
+ 636 0006 8EB3      		in r24,62-32
+ 637               	.LVL50:
+ 638 0008 8430      		cpi r24,lo8(4)
+ 639 000a 01F4      		brne .L46
+ 640               	.LVL51:
+ 641 000c 8785      		ldd r24,Z+15
+ 642 000e 9089      		ldd r25,Z+16
+ 643 0010 A189      		ldd r26,Z+17
+ 644 0012 B289      		ldd r27,Z+18
+ 645 0014 0097      		sbiw r24,0
+ 646 0016 A105      		cpc r26,__zero_reg__
+ 647 0018 B105      		cpc r27,__zero_reg__
+ 648 001a 01F0      		breq .L46
+ 649               	.LSM78:
+ 650 001c 8181      		ldd r24,Z+1
+ 651               	.LBB121:
+ 652               	.LBB122:
+ 653               	.LSM79:
+ 654 001e 8093 E900 		sts 233,r24
+ 655               	.LBE122:
+ 656               	.LBE121:
+ 657               	.LBB123:
+ 658               	.LBB124:
+ 659               	.LSM80:
+ 660 0022 8091 E800 		lds r24,232
+ 661               	.LBE124:
+ 662               	.LBE123:
+ 663               	.LSM81:
+ 664 0026 85FD      		sbrc r24,5
+ 665 0028 00C0      		rjmp .L47
+ 666               	.LBB125:
+ 667               	.LBB126:
+ 668               	.LBB127:
+ 669               	.LSM82:
+ 670 002a 8091 E800 		lds r24,232
+ 671 002e 8E77      		andi r24,lo8(126)
+ 672 0030 8093 E800 		sts 232,r24
+ 673               	.LBE127:
+ 674               	.LBE126:
+ 675               	.LSM83:
+ 676 0034 0E94 0000 		call Endpoint_WaitUntilReady
+ 677               	.LVL52:
+ 678 0038 8823      		tst r24
+ 679               	.LVL53:
+ 680 003a 01F4      		brne .L48
+ 681               	.LVL54:
+ 682               	.L47:
+ 683               	.LBE125:
+ 684               	.LBB128:
+ 685               	.LBB129:
+ 686               	.LSM84:
+ 687 003c 1093 F100 		sts 241,r17
+ 688 0040 80E0      		ldi r24,lo8(0)
+ 689 0042 00C0      		rjmp .L48
+ 690               	.LVL55:
+ 691               	.L46:
+ 692               	.LSM85:
+ 693 0044 82E0      		ldi r24,lo8(2)
+ 694               	.LVL56:
+ 695               	.L48:
+ 696               	.LVL57:
+ 697               	/* epilogue start */
+ 698               	.LBE129:
+ 699               	.LBE128:
+ 700               	.LSM86:
+ 701 0046 1F91      		pop r17
+ 702               	.LVL58:
+ 703 0048 0895      		ret
+ 704               	.LFE72:
+ 706               		.section	.text.CDC_Device_putchar,"ax",@progbits
+ 708               	CDC_Device_putchar:
+ 709               	.LFB79:
+ 710               	.LSM87:
+ 711               	.LVL59:
+ 712               	/* prologue: function */
+ 713               	/* frame size = 0 */
+ 714 0000 282F      		mov r18,r24
+ 715 0002 FB01      		movw r30,r22
+ 716               	.LSM88:
+ 717 0004 8485      		ldd r24,Z+12
+ 718 0006 9585      		ldd r25,Z+13
+ 719               	.LVL60:
+ 720 0008 622F      		mov r22,r18
+ 721               	.LVL61:
+ 722 000a 0E94 0000 		call CDC_Device_SendByte
+ 723               	.LVL62:
+ 724 000e 8823      		tst r24
+ 725 0010 01F4      		brne .L51
+ 726 0012 20E0      		ldi r18,lo8(0)
+ 727 0014 30E0      		ldi r19,hi8(0)
+ 728 0016 00C0      		rjmp .L52
+ 729               	.L51:
+ 730 0018 2FEF      		ldi r18,lo8(-1)
+ 731 001a 3FEF      		ldi r19,hi8(-1)
+ 732               	.L52:
+ 733               	.LSM89:
+ 734 001c C901      		movw r24,r18
+ 735               	/* epilogue start */
+ 736 001e 0895      		ret
+ 737               	.LFE79:
+ 739               		.section	.text.CDC_Device_ConfigureEndpoints,"ax",@progbits
+ 740               	.global	CDC_Device_ConfigureEndpoints
+ 742               	CDC_Device_ConfigureEndpoints:
+ 743               	.LFB69:
+ 744               	.LSM90:
+ 745               	.LVL63:
+ 746 0000 0F93      		push r16
+ 747 0002 1F93      		push r17
+ 748 0004 CF93      		push r28
+ 749 0006 DF93      		push r29
+ 750               	/* prologue: function */
+ 751               	/* frame size = 0 */
+ 752 0008 EC01      		movw r28,r24
+ 753               	.LSM91:
+ 754 000a 0D96      		adiw r24,13
+ 755               	.LVL64:
+ 756 000c FC01      		movw r30,r24
+ 757 000e 89E0      		ldi r24,lo8(9)
+ 758 0010 DF01      		movw r26,r30
+ 759 0012 1D92      		st X+,__zero_reg__
+ 760 0014 8A95      	        dec r24
+ 761 0016 01F4      		brne .-6
+ 762               	.LSM92:
+ 763 0018 2A81      		ldd r18,Y+2
+ 764 001a 3B81      		ldd r19,Y+3
+ 765 001c 0981      		ldd r16,Y+1
+ 766 001e 8C81      		ldd r24,Y+4
+ 767 0020 8823      		tst r24
+ 768 0022 01F4      		brne .L55
+ 769 0024 10E0      		ldi r17,lo8(0)
+ 770 0026 00C0      		rjmp .L56
+ 771               	.L55:
+ 772 0028 14E0      		ldi r17,lo8(4)
+ 773               	.L56:
+ 774               	.LBB130:
+ 775               	.LSM93:
+ 776 002a C901      		movw r24,r18
+ 777 002c 0E94 0000 		call Endpoint_BytesToEPSizeMaskDynamic
+ 778 0030 182B      		or r17,r24
+ 779 0032 1260      		ori r17,lo8(2)
+ 780 0034 802F      		mov r24,r16
+ 781 0036 61E8      		ldi r22,lo8(-127)
+ 782 0038 412F      		mov r20,r17
+ 783 003a 0E94 0000 		call Endpoint_ConfigureEndpoint_Prv
+ 784               	.LBE130:
+ 785               	.LSM94:
+ 786 003e 8823      		tst r24
+ 787 0040 01F0      		breq .L57
+ 788               	.LSM95:
+ 789 0042 2E81      		ldd r18,Y+6
+ 790 0044 3F81      		ldd r19,Y+7
+ 791 0046 0D81      		ldd r16,Y+5
+ 792 0048 8885      		ldd r24,Y+8
+ 793 004a 8823      		tst r24
+ 794 004c 01F4      		brne .L58
+ 795 004e 10E0      		ldi r17,lo8(0)
+ 796 0050 00C0      		rjmp .L59
+ 797               	.L58:
+ 798 0052 14E0      		ldi r17,lo8(4)
+ 799               	.L59:
+ 800               	.LBB131:
+ 801               	.LSM96:
+ 802 0054 C901      		movw r24,r18
+ 803 0056 0E94 0000 		call Endpoint_BytesToEPSizeMaskDynamic
+ 804 005a 182B      		or r17,r24
+ 805 005c 1260      		ori r17,lo8(2)
+ 806 005e 802F      		mov r24,r16
+ 807 0060 60E8      		ldi r22,lo8(-128)
+ 808 0062 412F      		mov r20,r17
+ 809 0064 0E94 0000 		call Endpoint_ConfigureEndpoint_Prv
+ 810               	.LBE131:
+ 811               	.LSM97:
+ 812 0068 8823      		tst r24
+ 813 006a 01F0      		breq .L57
+ 814               	.LSM98:
+ 815 006c 2A85      		ldd r18,Y+10
+ 816 006e 3B85      		ldd r19,Y+11
+ 817 0070 0985      		ldd r16,Y+9
+ 818 0072 8C85      		ldd r24,Y+12
+ 819 0074 8823      		tst r24
+ 820 0076 01F4      		brne .L60
+ 821 0078 10E0      		ldi r17,lo8(0)
+ 822 007a 00C0      		rjmp .L61
+ 823               	.L60:
+ 824 007c 14E0      		ldi r17,lo8(4)
+ 825               	.L61:
+ 826               	.LBB132:
+ 827               	.LSM99:
+ 828 007e C901      		movw r24,r18
+ 829 0080 0E94 0000 		call Endpoint_BytesToEPSizeMaskDynamic
+ 830 0084 182B      		or r17,r24
+ 831 0086 1260      		ori r17,lo8(2)
+ 832 0088 802F      		mov r24,r16
+ 833 008a 61EC      		ldi r22,lo8(-63)
+ 834 008c 412F      		mov r20,r17
+ 835 008e 0E94 0000 		call Endpoint_ConfigureEndpoint_Prv
+ 836 0092 00C0      		rjmp .L62
+ 837               	.L57:
+ 838 0094 80E0      		ldi r24,lo8(0)
+ 839               	.L62:
+ 840               	/* epilogue start */
+ 841               	.LBE132:
+ 842               	.LSM100:
+ 843 0096 DF91      		pop r29
+ 844 0098 CF91      		pop r28
+ 845               	.LVL65:
+ 846 009a 1F91      		pop r17
+ 847 009c 0F91      		pop r16
+ 848 009e 0895      		ret
+ 849               	.LFE69:
+ 851               		.section	.text.CDC_Device_ProcessControlRequest,"ax",@progbits
+ 852               	.global	CDC_Device_ProcessControlRequest
+ 854               	CDC_Device_ProcessControlRequest:
+ 855               	.LFB68:
+ 856               	.LSM101:
+ 857               	.LVL66:
+ 858 0000 CF93      		push r28
+ 859 0002 DF93      		push r29
+ 860               	/* prologue: function */
+ 861               	/* frame size = 0 */
+ 862 0004 EC01      		movw r28,r24
+ 863               	.LBB133:
+ 864               	.LBB134:
+ 865               	.LSM102:
+ 866 0006 8091 E800 		lds r24,232
+ 867               	.LVL67:
+ 868               	.LBE134:
+ 869               	.LBE133:
+ 870               	.LSM103:
+ 871 000a 83FF      		sbrs r24,3
+ 872 000c 00C0      		rjmp .L71
+ 873               	.LSM104:
+ 874 000e 8881      		ld r24,Y
+ 875 0010 90E0      		ldi r25,lo8(0)
+ 876 0012 2091 0000 		lds r18,USB_ControlRequest+4
+ 877 0016 3091 0000 		lds r19,(USB_ControlRequest+4)+1
+ 878 001a 2817      		cp r18,r24
+ 879 001c 3907      		cpc r19,r25
+ 880 001e 01F0      		breq .+2
+ 881 0020 00C0      		rjmp .L71
+ 882               	.LSM105:
+ 883 0022 8091 0000 		lds r24,USB_ControlRequest+1
+ 884 0026 8132      		cpi r24,lo8(33)
+ 885 0028 01F0      		breq .L67
+ 886 002a 8232      		cpi r24,lo8(34)
+ 887 002c 00F4      		brsh .L70
+ 888 002e 8032      		cpi r24,lo8(32)
+ 889 0030 01F0      		breq .+2
+ 890 0032 00C0      		rjmp .L71
+ 891 0034 00C0      		rjmp .L74
+ 892               	.L70:
+ 893 0036 8232      		cpi r24,lo8(34)
+ 894 0038 01F0      		breq .L68
+ 895 003a 8332      		cpi r24,lo8(35)
+ 896 003c 01F0      		breq .+2
+ 897 003e 00C0      		rjmp .L71
+ 898 0040 00C0      		rjmp .L75
+ 899               	.L67:
+ 900               	.LSM106:
+ 901 0042 8091 0000 		lds r24,USB_ControlRequest
+ 902 0046 813A      		cpi r24,lo8(-95)
+ 903 0048 01F0      		breq .+2
+ 904 004a 00C0      		rjmp .L71
+ 905               	.LBB135:
+ 906               	.LBB136:
+ 907               	.LSM107:
+ 908 004c 8091 E800 		lds r24,232
+ 909 0050 877F      		andi r24,lo8(-9)
+ 910 0052 8093 E800 		sts 232,r24
+ 911               	.LBE136:
+ 912               	.LBE135:
+ 913               	.LSM108:
+ 914 0056 CE01      		movw r24,r28
+ 915 0058 0F96      		adiw r24,15
+ 916 005a 67E0      		ldi r22,lo8(7)
+ 917 005c 70E0      		ldi r23,hi8(7)
+ 918 005e 0E94 0000 		call Endpoint_Write_Control_Stream_LE
+ 919               	.LBB137:
+ 920               	.LBB138:
+ 921               	.LSM109:
+ 922 0062 8091 E800 		lds r24,232
+ 923 0066 8B77      		andi r24,lo8(123)
+ 924 0068 00C0      		rjmp .L72
+ 925               	.L74:
+ 926               	.LBE138:
+ 927               	.LBE137:
+ 928               	.LSM110:
+ 929 006a 8091 0000 		lds r24,USB_ControlRequest
+ 930 006e 8132      		cpi r24,lo8(33)
+ 931 0070 01F4      		brne .L71
+ 932               	.LBB139:
+ 933               	.LBB140:
+ 934               	.LSM111:
+ 935 0072 8091 E800 		lds r24,232
+ 936 0076 877F      		andi r24,lo8(-9)
+ 937 0078 8093 E800 		sts 232,r24
+ 938               	.LBE140:
+ 939               	.LBE139:
+ 940               	.LSM112:
+ 941 007c CE01      		movw r24,r28
+ 942 007e 0F96      		adiw r24,15
+ 943 0080 67E0      		ldi r22,lo8(7)
+ 944 0082 70E0      		ldi r23,hi8(7)
+ 945 0084 0E94 0000 		call Endpoint_Read_Control_Stream_LE
+ 946               	.LSM113:
+ 947 0088 CE01      		movw r24,r28
+ 948 008a 0E94 0000 		call EVENT_CDC_Device_LineEncodingChanged
+ 949               	.LBB141:
+ 950               	.LBB142:
+ 951               	.LSM114:
+ 952 008e 8091 E800 		lds r24,232
+ 953 0092 8E77      		andi r24,lo8(126)
+ 954               	.L72:
+ 955 0094 8093 E800 		sts 232,r24
+ 956 0098 00C0      		rjmp .L71
+ 957               	.L68:
+ 958               	.LBE142:
+ 959               	.LBE141:
+ 960               	.LSM115:
+ 961 009a 8091 0000 		lds r24,USB_ControlRequest
+ 962 009e 8132      		cpi r24,lo8(33)
+ 963 00a0 01F4      		brne .L71
+ 964               	.LBB143:
+ 965               	.LBB144:
+ 966               	.LSM116:
+ 967 00a2 8091 E800 		lds r24,232
+ 968 00a6 877F      		andi r24,lo8(-9)
+ 969 00a8 8093 E800 		sts 232,r24
+ 970               	.LBE144:
+ 971               	.LBE143:
+ 972               	.LSM117:
+ 973 00ac 8091 0000 		lds r24,USB_ControlRequest+2
+ 974 00b0 8D87      		std Y+13,r24
+ 975               	.LSM118:
+ 976 00b2 CE01      		movw r24,r28
+ 977 00b4 0E94 0000 		call EVENT_CDC_Device_ControLineStateChanged
+ 978 00b8 00C0      		rjmp .L73
+ 979               	.L75:
+ 980               	.LSM119:
+ 981 00ba 8091 0000 		lds r24,USB_ControlRequest
+ 982 00be 8132      		cpi r24,lo8(33)
+ 983 00c0 01F4      		brne .L71
+ 984               	.LBB145:
+ 985               	.LBB146:
+ 986               	.LSM120:
+ 987 00c2 8091 E800 		lds r24,232
+ 988 00c6 877F      		andi r24,lo8(-9)
+ 989 00c8 8093 E800 		sts 232,r24
+ 990               	.LBE146:
+ 991               	.LBE145:
+ 992               	.LSM121:
+ 993 00cc CE01      		movw r24,r28
+ 994 00ce 6091 0000 		lds r22,USB_ControlRequest+2
+ 995 00d2 0E94 0000 		call EVENT_CDC_Device_BreakSent
+ 996               	.L73:
+ 997               	.LSM122:
+ 998 00d6 0E94 0000 		call Endpoint_ClearStatusStage
+ 999               	.L71:
+ 1000               	/* epilogue start */
+ 1001               	.LSM123:
+ 1002 00da DF91      		pop r29
+ 1003 00dc CF91      		pop r28
+ 1004               	.LVL68:
+ 1005 00de 0895      		ret
+ 1006               	.LFE68:
+ 1008               		.data
+ 1011               	C.15.2883:
+ 1012 0000 A1        		.byte	-95
+ 1013 0001 20        		.byte	32
+ 1014 0002 0000      		.word	0
+ 1015 0004 0000      		.word	0
+ 1016 0006 0100      		.word	1
+ 1017               		.weak	EVENT_CDC_Device_LineEncodingChanged
+ 1018               		.set	EVENT_CDC_Device_LineEncodingChanged,CDC_Device_Event_Stub
+ 1019               		.weak	EVENT_CDC_Device_ControLineStateChanged
+ 1020               		.set	EVENT_CDC_Device_ControLineStateChanged,CDC_Device_Event_Stub
+ 1021               		.weak	EVENT_CDC_Device_BreakSent
+ 1022               		.set	EVENT_CDC_Device_BreakSent,CDC_Device_Event_Stub
+ 1159               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 CDC.c
+/var/tmp//ccJEjx04.s:2      *ABS*:0000003f __SREG__
+/var/tmp//ccJEjx04.s:3      *ABS*:0000003e __SP_H__
+/var/tmp//ccJEjx04.s:4      *ABS*:0000003d __SP_L__
+/var/tmp//ccJEjx04.s:5      *ABS*:00000034 __CCP__
+/var/tmp//ccJEjx04.s:6      *ABS*:00000000 __tmp_reg__
+/var/tmp//ccJEjx04.s:7      *ABS*:00000001 __zero_reg__
+/var/tmp//ccJEjx04.s:19     .text.CDC_Device_Event_Stub:00000000 CDC_Device_Event_Stub
+/var/tmp//ccJEjx04.s:32     .text.CDC_Device_BytesReceived:00000000 CDC_Device_BytesReceived
+/var/tmp//ccJEjx04.s:111    .text.CDC_Device_ReceiveByte:00000000 CDC_Device_ReceiveByte
+/var/tmp//ccJEjx04.s:210    .text.CDC_Device_CreateStream:00000000 CDC_Device_CreateStream
+/var/tmp//ccJEjx04.s:708    .text.CDC_Device_putchar:00000000 CDC_Device_putchar
+/var/tmp//ccJEjx04.s:277    .text.CDC_Device_getchar:00000000 CDC_Device_getchar
+/var/tmp//ccJEjx04.s:244    .text.CDC_Device_CreateBlockingStream:00000000 CDC_Device_CreateBlockingStream
+/var/tmp//ccJEjx04.s:574    .text.CDC_Device_getchar_Blocking:00000000 CDC_Device_getchar_Blocking
+/var/tmp//ccJEjx04.s:309    .text.CDC_Device_SendControlLineStateChange:00000000 CDC_Device_SendControlLineStateChange
+/var/tmp//ccJEjx04.s:1011   .data:00000000 C.15.2883
+/var/tmp//ccJEjx04.s:405    .text.CDC_Device_SendString:00000000 CDC_Device_SendString
+/var/tmp//ccJEjx04.s:453    .text.CDC_Device_Flush:00000000 CDC_Device_Flush
+/var/tmp//ccJEjx04.s:544    .text.CDC_Device_USBTask:00000000 CDC_Device_USBTask
+/var/tmp//ccJEjx04.s:626    .text.CDC_Device_SendByte:00000000 CDC_Device_SendByte
+/var/tmp//ccJEjx04.s:742    .text.CDC_Device_ConfigureEndpoints:00000000 CDC_Device_ConfigureEndpoints
+/var/tmp//ccJEjx04.s:854    .text.CDC_Device_ProcessControlRequest:00000000 CDC_Device_ProcessControlRequest
+/var/tmp//ccJEjx04.s:19     .text.CDC_Device_Event_Stub:00000000 EVENT_CDC_Device_LineEncodingChanged
+/var/tmp//ccJEjx04.s:19     .text.CDC_Device_Event_Stub:00000000 EVENT_CDC_Device_ControLineStateChanged
+/var/tmp//ccJEjx04.s:19     .text.CDC_Device_Event_Stub:00000000 EVENT_CDC_Device_BreakSent
+
+UNDEFINED SYMBOLS
+Endpoint_Write_Stream_LE
+Endpoint_WaitUntilReady
+USB_USBTask
+Endpoint_BytesToEPSizeMaskDynamic
+Endpoint_ConfigureEndpoint_Prv
+USB_ControlRequest
+Endpoint_Write_Control_Stream_LE
+Endpoint_Read_Control_Stream_LE
+Endpoint_ClearStatusStage
+__do_copy_data

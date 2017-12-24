@@ -1,0 +1,13 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [ChronomeV2_2.PrjPcb]
+   Generated File[ChronomePCBV2_2.TXT]
+   Generated File[ChronomePCBV2_2.DRL]
+   Generated File[ChronomePCBV2_2.LDP]
+   Generated File[ChronomePCBV2_2.DRR]
+
+
+Files Generated   : 4
+Documents Printed : 0
+
+Finished Output Generation At 11:10:34 PM On 10/15/2011

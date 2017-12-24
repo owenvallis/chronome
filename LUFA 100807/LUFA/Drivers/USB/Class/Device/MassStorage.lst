@@ -1,0 +1,593 @@
+   1               		.file	"MassStorage.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.text.StreamCallback_MS_Device_AbortOnMassStoreReset,"ax",@progbits
+  18               	StreamCallback_MS_Device_AbortOnMassStoreReset:
+  19               	.LFB71:
+  20               	.LSM0:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LSM1:
+  24 0000 E091 0000 		lds r30,CallbackIsResetSource
+  25 0004 F091 0000 		lds r31,(CallbackIsResetSource)+1
+  26 0008 8081      		ld r24,Z
+  27               	/* epilogue start */
+  28               	.LSM2:
+  29 000a 0895      		ret
+  30               	.LFE71:
+  32               		.section	.text.MS_Device_USBTask,"ax",@progbits
+  33               	.global	MS_Device_USBTask
+  35               	MS_Device_USBTask:
+  36               	.LFB68:
+  37               	.LSM3:
+  38               	.LVL0:
+  39 0000 0F93      		push r16
+  40 0002 1F93      		push r17
+  41 0004 CF93      		push r28
+  42 0006 DF93      		push r29
+  43               	/* prologue: function */
+  44               	/* frame size = 0 */
+  45 0008 EC01      		movw r28,r24
+  46               	.LSM4:
+  47 000a 8EB3      		in r24,62-32
+  48               	.LVL1:
+  49 000c 8430      		cpi r24,lo8(4)
+  50 000e 01F0      		breq .+2
+  51 0010 00C0      		rjmp .L14
+  52               	.LSM5:
+  53 0012 9D81      		ldd r25,Y+5
+  54               	.LBB118:
+  55               	.LBB119:
+  56               	.LSM6:
+  57 0014 9093 E900 		sts 233,r25
+  58               	.LBE119:
+  59               	.LBE118:
+  60               	.LBB120:
+  61               	.LBB121:
+  62               	.LSM7:
+  63 0018 8091 E800 		lds r24,232
+  64               	.LBE121:
+  65               	.LBE120:
+  66               	.LSM8:
+  67 001c 85FF      		sbrs r24,5
+  68 001e 00C0      		rjmp .L5
+  69               	.LBB122:
+  70               	.LBB123:
+  71               	.LBB130:
+  72               	.LBB131:
+  73               	.LSM9:
+  74 0020 9093 E900 		sts 233,r25
+  75               	.LBE131:
+  76               	.LBE130:
+  77               	.LSM10:
+  78 0024 8E01      		movw r16,r28
+  79 0026 0A5C      		subi r16,lo8(-(54))
+  80 0028 1F4F      		sbci r17,hi8(-(54))
+  81 002a 1093 0000 		sts (CallbackIsResetSource)+1,r17
+  82 002e 0093 0000 		sts CallbackIsResetSource,r16
+  83               	.LBE123:
+  84               	.LSM11:
+  85 0032 CE01      		movw r24,r28
+  86 0034 0A96      		adiw r24,10
+  87 0036 6FE0      		ldi r22,lo8(15)
+  88 0038 70E0      		ldi r23,hi8(15)
+  89 003a 40E0      		ldi r20,lo8(gs(StreamCallback_MS_Device_AbortOnMassStoreReset))
+  90 003c 50E0      		ldi r21,hi8(gs(StreamCallback_MS_Device_AbortOnMassStoreReset))
+  91 003e 0E94 0000 		call Endpoint_Read_Stream_LE
+  92               	.LBB134:
+  93 0042 8823      		tst r24
+  94 0044 01F0      		breq .+2
+  95 0046 00C0      		rjmp .L5
+  96               	.LSM12:
+  97 0048 8A85      		ldd r24,Y+10
+  98 004a 9B85      		ldd r25,Y+11
+  99 004c AC85      		ldd r26,Y+12
+ 100 004e BD85      		ldd r27,Y+13
+ 101 0050 8555      		subi r24,lo8(1128420181)
+ 102 0052 9345      		sbci r25,hi8(1128420181)
+ 103 0054 A244      		sbci r26,hlo8(1128420181)
+ 104 0056 B344      		sbci r27,hhi8(1128420181)
+ 105 0058 01F4      		brne .L6
+ 106 005a 9F89      		ldd r25,Y+23
+ 107 005c 8985      		ldd r24,Y+9
+ 108 005e 9817      		cp r25,r24
+ 109 0060 00F4      		brsh .L6
+ 110 0062 8E89      		ldd r24,Y+22
+ 111 0064 90E0      		ldi r25,lo8(0)
+ 112 0066 8F71      		andi r24,lo8(31)
+ 113 0068 9070      		andi r25,hi8(31)
+ 114 006a 892B      		or r24,r25
+ 115 006c 01F4      		brne .L6
+ 116 006e 688D      		ldd r22,Y+24
+ 117 0070 6623      		tst r22
+ 118 0072 01F0      		breq .L6
+ 119 0074 6131      		cpi r22,lo8(17)
+ 120 0076 00F0      		brlo .L7
+ 121               	.L6:
+ 122               	.LBB128:
+ 123               	.LBB129:
+ 124               	.LSM13:
+ 125 0078 8091 EB00 		lds r24,235
+ 126 007c 8062      		ori r24,lo8(32)
+ 127 007e 8093 EB00 		sts 235,r24
+ 128               	.LBE129:
+ 129               	.LBE128:
+ 130               	.LSM14:
+ 131 0082 8981      		ldd r24,Y+1
+ 132               	.LBB126:
+ 133               	.LBB127:
+ 134               	.LSM15:
+ 135 0084 8093 E900 		sts 233,r24
+ 136               	.LBE127:
+ 137               	.LBE126:
+ 138               	.LBB124:
+ 139               	.LBB125:
+ 140               	.LSM16:
+ 141 0088 8091 EB00 		lds r24,235
+ 142 008c 8062      		ori r24,lo8(32)
+ 143 008e 8093 EB00 		sts 235,r24
+ 144 0092 00C0      		rjmp .L5
+ 145               	.L7:
+ 146               	.LBE125:
+ 147               	.LBE124:
+ 148               	.LSM17:
+ 149 0094 1093 0000 		sts (CallbackIsResetSource)+1,r17
+ 150 0098 0093 0000 		sts CallbackIsResetSource,r16
+ 151               	.LBE134:
+ 152               	.LSM18:
+ 153 009c CE01      		movw r24,r28
+ 154 009e 4996      		adiw r24,25
+ 155 00a0 70E0      		ldi r23,lo8(0)
+ 156 00a2 40E0      		ldi r20,lo8(gs(StreamCallback_MS_Device_AbortOnMassStoreReset))
+ 157 00a4 50E0      		ldi r21,hi8(gs(StreamCallback_MS_Device_AbortOnMassStoreReset))
+ 158 00a6 0E94 0000 		call Endpoint_Read_Stream_LE
+ 159               	.LBB135:
+ 160 00aa 8823      		tst r24
+ 161 00ac 01F0      		breq .+2
+ 162 00ae 00C0      		rjmp .L5
+ 163               	.LBB132:
+ 164               	.LBB133:
+ 165               	.LSM19:
+ 166 00b0 8091 E800 		lds r24,232
+ 167 00b4 8B77      		andi r24,lo8(123)
+ 168 00b6 8093 E800 		sts 232,r24
+ 169               	.LBE133:
+ 170               	.LBE132:
+ 171               	.LBE135:
+ 172               	.LBE122:
+ 173               	.LSM20:
+ 174 00ba 8E89      		ldd r24,Y+22
+ 175 00bc 87FF      		sbrs r24,7
+ 176 00be 00C0      		rjmp .L8
+ 177               	.LSM21:
+ 178 00c0 8981      		ldd r24,Y+1
+ 179               	.LBB136:
+ 180               	.LBB137:
+ 181               	.LSM22:
+ 182 00c2 8093 E900 		sts 233,r24
+ 183               	.L8:
+ 184               	.LBE137:
+ 185               	.LBE136:
+ 186               	.LSM23:
+ 187 00c6 CE01      		movw r24,r28
+ 188 00c8 0E94 0000 		call CALLBACK_MS_Device_SCSICommandReceived
+ 189 00cc 91E0      		ldi r25,lo8(1)
+ 190 00ce 9827      		eor r25,r24
+ 191 00d0 9DAB      		std Y+53,r25
+ 192               	.LSM24:
+ 193 00d2 25E5      		ldi r18,lo8(1396855637)
+ 194 00d4 33E5      		ldi r19,hi8(1396855637)
+ 195 00d6 42E4      		ldi r20,hlo8(1396855637)
+ 196 00d8 53E5      		ldi r21,hhi8(1396855637)
+ 197 00da 29A7      		std Y+41,r18
+ 198 00dc 3AA7      		std Y+42,r19
+ 199 00de 4BA7      		std Y+43,r20
+ 200 00e0 5CA7      		std Y+44,r21
+ 201               	.LSM25:
+ 202 00e2 2E85      		ldd r18,Y+14
+ 203 00e4 3F85      		ldd r19,Y+15
+ 204 00e6 4889      		ldd r20,Y+16
+ 205 00e8 5989      		ldd r21,Y+17
+ 206 00ea 2DA7      		std Y+45,r18
+ 207 00ec 3EA7      		std Y+46,r19
+ 208 00ee 4FA7      		std Y+47,r20
+ 209 00f0 58AB      		std Y+48,r21
+ 210               	.LSM26:
+ 211 00f2 2A89      		ldd r18,Y+18
+ 212 00f4 3B89      		ldd r19,Y+19
+ 213 00f6 4C89      		ldd r20,Y+20
+ 214 00f8 5D89      		ldd r21,Y+21
+ 215 00fa 29AB      		std Y+49,r18
+ 216 00fc 3AAB      		std Y+50,r19
+ 217 00fe 4BAB      		std Y+51,r20
+ 218 0100 5CAB      		std Y+52,r21
+ 219               	.LSM27:
+ 220 0102 9130      		cpi r25,lo8(1)
+ 221 0104 01F4      		brne .L9
+ 222 0106 2115      		cp r18,__zero_reg__
+ 223 0108 3105      		cpc r19,__zero_reg__
+ 224 010a 4105      		cpc r20,__zero_reg__
+ 225 010c 5105      		cpc r21,__zero_reg__
+ 226 010e 01F0      		breq .L9
+ 227               	.LBB138:
+ 228               	.LBB139:
+ 229               	.LSM28:
+ 230 0110 8091 EB00 		lds r24,235
+ 231 0114 8062      		ori r24,lo8(32)
+ 232 0116 8093 EB00 		sts 235,r24
+ 233               	.L9:
+ 234               	.LBE139:
+ 235               	.LBE138:
+ 236               	.LBB140:
+ 237               	.LBB141:
+ 238               	.LSM29:
+ 239 011a 8D81      		ldd r24,Y+5
+ 240               	.LBB148:
+ 241               	.LBB149:
+ 242               	.LSM30:
+ 243 011c 8093 E900 		sts 233,r24
+ 244 0120 00C0      		rjmp .L10
+ 245               	.L11:
+ 246               	.LBE149:
+ 247               	.LBE148:
+ 248               	.LSM31:
+ 249 0122 8EA9      		ldd r24,Y+54
+ 250 0124 8823      		tst r24
+ 251 0126 01F4      		brne .L5
+ 252               	.L10:
+ 253               	.LBB146:
+ 254               	.LBB147:
+ 255               	.LSM32:
+ 256 0128 8091 EB00 		lds r24,235
+ 257               	.LBE147:
+ 258               	.LBE146:
+ 259               	.LSM33:
+ 260 012c 85FD      		sbrc r24,5
+ 261 012e 00C0      		rjmp .L11
+ 262               	.LSM34:
+ 263 0130 8981      		ldd r24,Y+1
+ 264               	.LBB144:
+ 265               	.LBB145:
+ 266               	.LSM35:
+ 267 0132 8093 E900 		sts 233,r24
+ 268 0136 00C0      		rjmp .L12
+ 269               	.L13:
+ 270               	.LBE145:
+ 271               	.LBE144:
+ 272               	.LSM36:
+ 273 0138 8EA9      		ldd r24,Y+54
+ 274 013a 8823      		tst r24
+ 275 013c 01F4      		brne .L5
+ 276               	.L12:
+ 277               	.LBB142:
+ 278               	.LBB143:
+ 279               	.LSM37:
+ 280 013e 8091 EB00 		lds r24,235
+ 281               	.LBE143:
+ 282               	.LBE142:
+ 283               	.LSM38:
+ 284 0142 85FD      		sbrc r24,5
+ 285 0144 00C0      		rjmp .L13
+ 286               	.LSM39:
+ 287 0146 E696      		adiw r28,54
+ 288 0148 D093 0000 		sts (CallbackIsResetSource)+1,r29
+ 289 014c C093 0000 		sts CallbackIsResetSource,r28
+ 290 0150 E697      		sbiw r28,54
+ 291               	.LBE141:
+ 292               	.LSM40:
+ 293 0152 CE01      		movw r24,r28
+ 294 0154 8996      		adiw r24,41
+ 295 0156 6DE0      		ldi r22,lo8(13)
+ 296 0158 70E0      		ldi r23,hi8(13)
+ 297 015a 40E0      		ldi r20,lo8(gs(StreamCallback_MS_Device_AbortOnMassStoreReset))
+ 298 015c 50E0      		ldi r21,hi8(gs(StreamCallback_MS_Device_AbortOnMassStoreReset))
+ 299 015e 0E94 0000 		call Endpoint_Write_Stream_LE
+ 300               	.LBB152:
+ 301 0162 8823      		tst r24
+ 302 0164 01F4      		brne .L5
+ 303               	.LBB150:
+ 304               	.LBB151:
+ 305               	.LSM41:
+ 306 0166 8091 E800 		lds r24,232
+ 307 016a 8E77      		andi r24,lo8(126)
+ 308 016c 8093 E800 		sts 232,r24
+ 309               	.L5:
+ 310               	.LBE151:
+ 311               	.LBE150:
+ 312               	.LBE152:
+ 313               	.LBE140:
+ 314               	.LSM42:
+ 315 0170 8EA9      		ldd r24,Y+54
+ 316 0172 8823      		tst r24
+ 317 0174 01F0      		breq .L14
+ 318               	.LSM43:
+ 319 0176 4D81      		ldd r20,Y+5
+ 320               	.LBB153:
+ 321               	.LBB154:
+ 322               	.LSM44:
+ 323 0178 21E0      		ldi r18,lo8(1)
+ 324 017a 30E0      		ldi r19,hi8(1)
+ 325 017c C901      		movw r24,r18
+ 326 017e 042E      		mov r0,r20
+ 327 0180 00C0      		rjmp 2f
+ 328 0182 880F      	1:	lsl r24
+ 329 0184 991F      		rol r25
+ 330 0186 0A94      	2:	dec r0
+ 331 0188 02F4      		brpl 1b
+ 332 018a 8093 EA00 		sts 234,r24
+ 333               	.LSM45:
+ 334 018e 1092 EA00 		sts 234,__zero_reg__
+ 335               	.LBE154:
+ 336               	.LBE153:
+ 337               	.LSM46:
+ 338 0192 9981      		ldd r25,Y+1
+ 339               	.LBB155:
+ 340               	.LBB156:
+ 341               	.LSM47:
+ 342 0194 092E      		mov r0,r25
+ 343 0196 00C0      		rjmp 2f
+ 344 0198 220F      	1:	lsl r18
+ 345 019a 331F      		rol r19
+ 346 019c 0A94      	2:	dec r0
+ 347 019e 02F4      		brpl 1b
+ 348 01a0 2093 EA00 		sts 234,r18
+ 349               	.LSM48:
+ 350 01a4 1092 EA00 		sts 234,__zero_reg__
+ 351               	.LBE156:
+ 352               	.LBE155:
+ 353               	.LBB157:
+ 354               	.LBB158:
+ 355               	.LSM49:
+ 356 01a8 4093 E900 		sts 233,r20
+ 357               	.LBE158:
+ 358               	.LBE157:
+ 359               	.LBB159:
+ 360               	.LBB160:
+ 361               	.LSM50:
+ 362 01ac 8091 EB00 		lds r24,235
+ 363 01b0 8061      		ori r24,lo8(16)
+ 364 01b2 8093 EB00 		sts 235,r24
+ 365               	.LBE160:
+ 366               	.LBE159:
+ 367               	.LBB161:
+ 368               	.LBB162:
+ 369               	.LSM51:
+ 370 01b6 8091 EB00 		lds r24,235
+ 371 01ba 8860      		ori r24,lo8(8)
+ 372 01bc 8093 EB00 		sts 235,r24
+ 373               	.LBE162:
+ 374               	.LBE161:
+ 375               	.LBB163:
+ 376               	.LBB164:
+ 377               	.LSM52:
+ 378 01c0 9093 E900 		sts 233,r25
+ 379               	.LBE164:
+ 380               	.LBE163:
+ 381               	.LBB165:
+ 382               	.LBB166:
+ 383               	.LSM53:
+ 384 01c4 8091 EB00 		lds r24,235
+ 385 01c8 8061      		ori r24,lo8(16)
+ 386 01ca 8093 EB00 		sts 235,r24
+ 387               	.LBE166:
+ 388               	.LBE165:
+ 389               	.LBB167:
+ 390               	.LBB168:
+ 391               	.LSM54:
+ 392 01ce 8091 EB00 		lds r24,235
+ 393 01d2 8860      		ori r24,lo8(8)
+ 394 01d4 8093 EB00 		sts 235,r24
+ 395               	.LBE168:
+ 396               	.LBE167:
+ 397               	.LSM55:
+ 398 01d8 1EAA      		std Y+54,__zero_reg__
+ 399               	.L14:
+ 400               	/* epilogue start */
+ 401               	.LSM56:
+ 402 01da DF91      		pop r29
+ 403 01dc CF91      		pop r28
+ 404               	.LVL2:
+ 405 01de 1F91      		pop r17
+ 406 01e0 0F91      		pop r16
+ 407 01e2 0895      		ret
+ 408               	.LFE68:
+ 410               		.section	.text.MS_Device_ConfigureEndpoints,"ax",@progbits
+ 411               	.global	MS_Device_ConfigureEndpoints
+ 413               	MS_Device_ConfigureEndpoints:
+ 414               	.LFB67:
+ 415               	.LSM57:
+ 416               	.LVL3:
+ 417 0000 0F93      		push r16
+ 418 0002 1F93      		push r17
+ 419 0004 CF93      		push r28
+ 420 0006 DF93      		push r29
+ 421               	/* prologue: function */
+ 422               	/* frame size = 0 */
+ 423 0008 EC01      		movw r28,r24
+ 424               	.LSM58:
+ 425 000a 0A96      		adiw r24,10
+ 426               	.LVL4:
+ 427 000c FC01      		movw r30,r24
+ 428 000e 8DE2      		ldi r24,lo8(45)
+ 429 0010 DF01      		movw r26,r30
+ 430 0012 1D92      		st X+,__zero_reg__
+ 431 0014 8A95      	        dec r24
+ 432 0016 01F4      		brne .-6
+ 433               	.LSM59:
+ 434 0018 2A81      		ldd r18,Y+2
+ 435 001a 3B81      		ldd r19,Y+3
+ 436 001c 0981      		ldd r16,Y+1
+ 437 001e 8C81      		ldd r24,Y+4
+ 438 0020 8823      		tst r24
+ 439 0022 01F4      		brne .L16
+ 440 0024 10E0      		ldi r17,lo8(0)
+ 441 0026 00C0      		rjmp .L17
+ 442               	.L16:
+ 443 0028 14E0      		ldi r17,lo8(4)
+ 444               	.L17:
+ 445               	.LBB169:
+ 446               	.LSM60:
+ 447 002a C901      		movw r24,r18
+ 448 002c 0E94 0000 		call Endpoint_BytesToEPSizeMaskDynamic
+ 449 0030 182B      		or r17,r24
+ 450 0032 1260      		ori r17,lo8(2)
+ 451 0034 802F      		mov r24,r16
+ 452 0036 61E8      		ldi r22,lo8(-127)
+ 453 0038 412F      		mov r20,r17
+ 454 003a 0E94 0000 		call Endpoint_ConfigureEndpoint_Prv
+ 455               	.LBE169:
+ 456               	.LSM61:
+ 457 003e 8823      		tst r24
+ 458 0040 01F0      		breq .L19
+ 459               	.LSM62:
+ 460 0042 2E81      		ldd r18,Y+6
+ 461 0044 3F81      		ldd r19,Y+7
+ 462 0046 0D81      		ldd r16,Y+5
+ 463 0048 8885      		ldd r24,Y+8
+ 464 004a 8823      		tst r24
+ 465 004c 01F4      		brne .L20
+ 466 004e 10E0      		ldi r17,lo8(0)
+ 467 0050 00C0      		rjmp .L21
+ 468               	.L20:
+ 469 0052 14E0      		ldi r17,lo8(4)
+ 470               	.L21:
+ 471               	.LBB170:
+ 472               	.LSM63:
+ 473 0054 C901      		movw r24,r18
+ 474 0056 0E94 0000 		call Endpoint_BytesToEPSizeMaskDynamic
+ 475 005a 182B      		or r17,r24
+ 476 005c 1260      		ori r17,lo8(2)
+ 477 005e 802F      		mov r24,r16
+ 478 0060 60E8      		ldi r22,lo8(-128)
+ 479 0062 412F      		mov r20,r17
+ 480 0064 0E94 0000 		call Endpoint_ConfigureEndpoint_Prv
+ 481               	.L19:
+ 482               	/* epilogue start */
+ 483               	.LBE170:
+ 484               	.LSM64:
+ 485 0068 DF91      		pop r29
+ 486 006a CF91      		pop r28
+ 487               	.LVL5:
+ 488 006c 1F91      		pop r17
+ 489 006e 0F91      		pop r16
+ 490 0070 0895      		ret
+ 491               	.LFE67:
+ 493               		.section	.text.MS_Device_ProcessControlRequest,"ax",@progbits
+ 494               	.global	MS_Device_ProcessControlRequest
+ 496               	MS_Device_ProcessControlRequest:
+ 497               	.LFB66:
+ 498               	.LSM65:
+ 499               	.LVL6:
+ 500               	/* prologue: function */
+ 501               	/* frame size = 0 */
+ 502 0000 FC01      		movw r30,r24
+ 503               	.LBB171:
+ 504               	.LBB172:
+ 505               	.LSM66:
+ 506 0002 8091 E800 		lds r24,232
+ 507               	.LVL7:
+ 508               	.LBE172:
+ 509               	.LBE171:
+ 510               	.LSM67:
+ 511 0006 83FF      		sbrs r24,3
+ 512 0008 00C0      		rjmp .L27
+ 513               	.LSM68:
+ 514 000a 8081      		ld r24,Z
+ 515 000c 90E0      		ldi r25,lo8(0)
+ 516 000e 2091 0000 		lds r18,USB_ControlRequest+4
+ 517 0012 3091 0000 		lds r19,(USB_ControlRequest+4)+1
+ 518 0016 2817      		cp r18,r24
+ 519 0018 3907      		cpc r19,r25
+ 520 001a 01F4      		brne .L27
+ 521               	.LSM69:
+ 522 001c 8091 0000 		lds r24,USB_ControlRequest+1
+ 523 0020 8E3F      		cpi r24,lo8(-2)
+ 524 0022 01F0      		breq .L25
+ 525 0024 8F3F      		cpi r24,lo8(-1)
+ 526 0026 01F4      		brne .L27
+ 527               	.LSM70:
+ 528 0028 8091 0000 		lds r24,USB_ControlRequest
+ 529 002c 8132      		cpi r24,lo8(33)
+ 530 002e 01F4      		brne .L27
+ 531               	.LBB173:
+ 532               	.LBB174:
+ 533               	.LSM71:
+ 534 0030 8091 E800 		lds r24,232
+ 535 0034 877F      		andi r24,lo8(-9)
+ 536 0036 8093 E800 		sts 232,r24
+ 537               	.LBE174:
+ 538               	.LBE173:
+ 539               	.LSM72:
+ 540 003a 81E0      		ldi r24,lo8(1)
+ 541 003c 86AB      		std Z+54,r24
+ 542               	.LSM73:
+ 543 003e 0E94 0000 		call Endpoint_ClearStatusStage
+ 544               	.LVL8:
+ 545 0042 0895      		ret
+ 546               	.LVL9:
+ 547               	.L25:
+ 548               	.LSM74:
+ 549 0044 8091 0000 		lds r24,USB_ControlRequest
+ 550 0048 813A      		cpi r24,lo8(-95)
+ 551 004a 01F4      		brne .L27
+ 552               	.LBB175:
+ 553               	.LBB176:
+ 554               	.LSM75:
+ 555 004c 8091 E800 		lds r24,232
+ 556 0050 877F      		andi r24,lo8(-9)
+ 557 0052 8093 E800 		sts 232,r24
+ 558               	.LBE176:
+ 559               	.LBE175:
+ 560               	.LSM76:
+ 561 0056 8185      		ldd r24,Z+9
+ 562 0058 8150      		subi r24,lo8(-(-1))
+ 563               	.LBB177:
+ 564               	.LBB178:
+ 565               	.LSM77:
+ 566 005a 8093 F100 		sts 241,r24
+ 567               	.LBE178:
+ 568               	.LBE177:
+ 569               	.LBB179:
+ 570               	.LBB180:
+ 571               	.LSM78:
+ 572 005e 8091 E800 		lds r24,232
+ 573 0062 8E77      		andi r24,lo8(126)
+ 574 0064 8093 E800 		sts 232,r24
+ 575               	.LBE180:
+ 576               	.LBE179:
+ 577               	.LSM79:
+ 578 0068 0E94 0000 		call Endpoint_ClearStatusStage
+ 579               	.LVL10:
+ 580               	.L27:
+ 581 006c 0895      		ret
+ 582               	.LFE66:
+ 584               		.lcomm CallbackIsResetSource,2
+ 633               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 MassStorage.c
+/var/tmp//ccfxN7Yg.s:2      *ABS*:0000003f __SREG__
+/var/tmp//ccfxN7Yg.s:3      *ABS*:0000003e __SP_H__
+/var/tmp//ccfxN7Yg.s:4      *ABS*:0000003d __SP_L__
+/var/tmp//ccfxN7Yg.s:5      *ABS*:00000034 __CCP__
+/var/tmp//ccfxN7Yg.s:6      *ABS*:00000000 __tmp_reg__
+/var/tmp//ccfxN7Yg.s:7      *ABS*:00000001 __zero_reg__
+/var/tmp//ccfxN7Yg.s:18     .text.StreamCallback_MS_Device_AbortOnMassStoreReset:00000000 StreamCallback_MS_Device_AbortOnMassStoreReset
+                             .bss:00000000 CallbackIsResetSource
+/var/tmp//ccfxN7Yg.s:35     .text.MS_Device_USBTask:00000000 MS_Device_USBTask
+/var/tmp//ccfxN7Yg.s:413    .text.MS_Device_ConfigureEndpoints:00000000 MS_Device_ConfigureEndpoints
+/var/tmp//ccfxN7Yg.s:496    .text.MS_Device_ProcessControlRequest:00000000 MS_Device_ProcessControlRequest
+
+UNDEFINED SYMBOLS
+Endpoint_Read_Stream_LE
+CALLBACK_MS_Device_SCSICommandReceived
+Endpoint_Write_Stream_LE
+Endpoint_BytesToEPSizeMaskDynamic
+Endpoint_ConfigureEndpoint_Prv
+USB_ControlRequest
+Endpoint_ClearStatusStage
+__do_clear_bss

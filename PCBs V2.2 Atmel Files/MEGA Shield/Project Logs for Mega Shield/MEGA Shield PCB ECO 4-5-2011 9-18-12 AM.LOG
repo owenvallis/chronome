@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=ADCI1 Pin=10k-1
+Removed Pin From Net: NetName=ADCI2 Pin=10k-2
+Removed Pin From Net: NetName=ADCI3 Pin=10k-3
+Removed Pin From Net: NetName=ADCI4 Pin=10k-4
+Removed Pin From Net: NetName=ADCI5 Pin=10k-5
+Removed Pin From Net: NetName=ADCI6 Pin=10k-6
+Removed Pin From Net: NetName=ADCI7 Pin=10k-7
+Removed Pin From Net: NetName=ADCI8 Pin=10k-8
+Added Pin To Net: NetName=ADCI8 Pin=10k-1
+Added Pin To Net: NetName=ADCI7 Pin=10k-2
+Added Pin To Net: NetName=ADCI6 Pin=10k-3
+Added Pin To Net: NetName=ADCI5 Pin=10k-4
+Added Pin To Net: NetName=ADCI4 Pin=10k-5
+Added Pin To Net: NetName=ADCI3 Pin=10k-6
+Added Pin To Net: NetName=ADCI2 Pin=10k-7
+Added Pin To Net: NetName=ADCI1 Pin=10k-8

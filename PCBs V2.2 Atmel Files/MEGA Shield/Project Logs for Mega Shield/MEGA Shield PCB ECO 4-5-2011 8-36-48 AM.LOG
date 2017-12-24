@@ -1,0 +1,33 @@
+Removed Pin From Net: NetName=GND Pin=10k-0
+Removed Pin From Net: NetName=GND Pin=P6-4
+Removed Pin From Net: NetName=GND Pin=P6-5
+Change Component Comment : Designator=P11 Old Comment=ADC Inputs New Comment=ADC Col Inputs
+Change Component Comment : Designator=P9 Old Comment=ROWS New Comment=ADC Row Outputs
+Added Component: Designator=C1(RAD-0.3)
+Added Component: Designator=C2(RAD-0.3)
+Added Component: Designator=C3(RAD-0.3)
+Added Component: Designator=C4(RAD-0.3)
+Added Component: Designator=C5(RAD-0.3)
+Added Component: Designator=C6(RAD-0.3)
+Added Component: Designator=C7(RAD-0.3)
+Added Component: Designator=C8(RAD-0.3)
+Added Pin To Net: NetName=GNDADC Pin=10k-0
+Added Pin To Net: NetName=GNDADC Pin=C1-1
+Added Pin To Net: NetName=COL1 Pin=C1-2
+Added Pin To Net: NetName=GNDADC Pin=C2-1
+Added Pin To Net: NetName=COL2 Pin=C2-2
+Added Pin To Net: NetName=GNDADC Pin=C3-1
+Added Pin To Net: NetName=COL3 Pin=C3-2
+Added Pin To Net: NetName=GNDADC Pin=C4-1
+Added Pin To Net: NetName=COL4 Pin=C4-2
+Added Pin To Net: NetName=GNDADC Pin=C5-1
+Added Pin To Net: NetName=COL5 Pin=C5-2
+Added Pin To Net: NetName=GNDADC Pin=C6-1
+Added Pin To Net: NetName=COL6 Pin=C6-2
+Added Pin To Net: NetName=GNDADC Pin=C7-1
+Added Pin To Net: NetName=COL7 Pin=C7-2
+Added Pin To Net: NetName=GNDADC Pin=C8-1
+Added Pin To Net: NetName=COL8 Pin=C8-2
+Added Pin To Net: NetName=GND Pin=P1-7
+Added Pin To Net: NetName=GNDADC Pin=P6-4
+Added Pin To Net: NetName=GNDADC Pin=P6-5

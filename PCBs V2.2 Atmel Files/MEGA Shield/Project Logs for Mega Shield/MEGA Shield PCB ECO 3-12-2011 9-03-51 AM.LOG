@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=COL8 Pin=P4-1
+Removed Pin From Net: NetName=COL7 Pin=P4-2
+Removed Pin From Net: NetName=COL6 Pin=P4-3
+Removed Pin From Net: NetName=COL5 Pin=P4-4
+Removed Pin From Net: NetName=COL4 Pin=P4-5
+Removed Pin From Net: NetName=COL3 Pin=P4-6
+Removed Pin From Net: NetName=COL2 Pin=P4-7
+Removed Pin From Net: NetName=COL1 Pin=P4-8
+Added Pin To Net: NetName=COL1 Pin=P4-1
+Added Pin To Net: NetName=COL2 Pin=P4-2
+Added Pin To Net: NetName=COL3 Pin=P4-3
+Added Pin To Net: NetName=COL4 Pin=P4-4
+Added Pin To Net: NetName=COL5 Pin=P4-5
+Added Pin To Net: NetName=COL6 Pin=P4-6
+Added Pin To Net: NetName=COL7 Pin=P4-7
+Added Pin To Net: NetName=COL8 Pin=P4-8

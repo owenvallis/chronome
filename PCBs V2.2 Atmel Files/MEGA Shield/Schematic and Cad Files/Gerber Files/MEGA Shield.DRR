@@ -1,0 +1,19 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: MEGA Shield.PcbDoc   4/5/2011  11:18:32 AM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : MEGA Shield.TXT
+EIA File   : MEGA Shield.DRL
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        20mil (0.508mm)          Round          1                0.00 Inch (0.00 mm)
+T2        28mil (0.7112mm)         Round          2                0.10 Inch (2.54 mm)
+T3        30mil (0.762mm)          Round          9                0.80 Inch (20.32 mm)
+T4        35.4mil (0.89916mm)      Round          142              18.81 Inch (477.85 mm)
+T5        39.4mil (1.00076mm)      Round          16               1.97 Inch (49.91 mm)
+---------------------------------------------------------------------------
+Totals                                            170              21.68 Inch (550.63 mm)
+
+Total Processing Time (hh:mm:ss) : 00:00:00

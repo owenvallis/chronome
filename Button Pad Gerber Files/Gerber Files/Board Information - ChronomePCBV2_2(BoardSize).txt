@@ -1,0 +1,10 @@
+Board Information Report
+Filename     : C:\Documents and Settings\Owen_vallis\Desktop\Chronome BU\ChronomeV2.1\ChronomePCBV2_2.PcbDoc
+Date         : 4/21/2011
+Time         : 9:44:02 AM
+Time Elapsed : 00:00:00
+
+General
+    Board Size, 8870.027milsx8870.027mils
+    Components on board, 151
+count : 2

@@ -1,0 +1,22 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: ChronomePCBV2_2.PcbDoc   10/15/2011  11:10:34 PM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : ChronomePCBV2_2.TXT
+EIA File   : ChronomePCBV2_2.DRL
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        20mil (0.508mm)          Round          20               7.75 Inch (196.94 mm)
+T2        28mil (0.7112mm)         Round          284              127.91 Inch (3248.92 mm)
+T3        30mil (0.762mm)          Round          185              94.21 Inch (2393.02 mm)
+T4        31mil (0.7874mm)         Round          2                0.20 Inch (5.00 mm)
+T5        33mil (0.8382mm)         Round          16               10.51 Inch (267.00 mm)
+T6        35mil (0.889mm)          Round          309              88.57 Inch (2249.60 mm)
+T7        39mil (0.9906mm)         Round          8                6.01 Inch (152.53 mm)
+T8        122mil (3.0988mm)        Round          77               87.62 Inch (2225.43 mm)
+---------------------------------------------------------------------------
+Totals                                            901              422.77 Inch (10738.45 mm)
+
+Total Processing Time (hh:mm:ss) : 00:00:00

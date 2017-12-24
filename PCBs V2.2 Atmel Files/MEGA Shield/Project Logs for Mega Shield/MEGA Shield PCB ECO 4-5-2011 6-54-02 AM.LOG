@@ -1,0 +1,37 @@
+Removed Pin From Net: NetName=GND Pin=P8-11
+Removed Pin From Net: NetName=COL1 Pin=P8-12
+Removed Pin From Net: NetName=COL2 Pin=P8-13
+Removed Pin From Net: NetName=COL3 Pin=P8-14
+Removed Pin From Net: NetName=COL4 Pin=P8-15
+Removed Pin From Net: NetName=COL5 Pin=P8-16
+Removed Pin From Net: NetName=COL6 Pin=P8-17
+Removed Pin From Net: NetName=COL7 Pin=P8-18
+Removed Pin From Net: NetName=COL8 Pin=P8-19
+Added Component: Designator=P11(HDR2X8_CEN)
+Added Pin To Net: NetName=VCC Pin=P8-11
+Added Pin To Net: NetName=VCC Pin=P8-12
+Added Pin To Net: NetName=VCC Pin=P8-13
+Added Pin To Net: NetName=VCC Pin=P8-14
+Added Pin To Net: NetName=VCC Pin=P8-15
+Added Pin To Net: NetName=GND Pin=P8-16
+Added Pin To Net: NetName=GND Pin=P8-17
+Added Pin To Net: NetName=GND Pin=P8-18
+Added Pin To Net: NetName=GND Pin=P8-19
+Added Pin To Net: NetName=GND Pin=P8-20
+Added Pin To Net: NetName=COL1 Pin=P11-1
+Added Pin To Net: NetName=COL2 Pin=P11-2
+Added Pin To Net: NetName=COL3 Pin=P11-3
+Added Pin To Net: NetName=COL4 Pin=P11-4
+Added Pin To Net: NetName=COL5 Pin=P11-5
+Added Pin To Net: NetName=COL6 Pin=P11-6
+Added Pin To Net: NetName=COL7 Pin=P11-7
+Added Pin To Net: NetName=COL8 Pin=P11-8
+Added Pin To Net: NetName=GNDADC Pin=P11-9
+Added Pin To Net: NetName=GNDADC Pin=P11-10
+Added Pin To Net: NetName=GNDADC Pin=P11-11
+Added Pin To Net: NetName=GNDADC Pin=P11-12
+Added Pin To Net: NetName=GNDADC Pin=P11-13
+Added Pin To Net: NetName=GNDADC Pin=P11-14
+Added Pin To Net: NetName=GNDADC Pin=P11-15
+Added Pin To Net: NetName=GNDADC Pin=P11-16
+Added Net: Name=GNDADC
